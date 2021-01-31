@@ -1,0 +1,61 @@
+query getAllSeries {
+  Series {
+    id
+    cast
+    
+    category {
+      category_img
+      id
+      description
+      name
+    }
+    createdBy
+    description
+    episodesData {
+      airDate
+      desc
+      durationMins
+      episode_number
+      id
+      poster
+      seasonNo
+      seasonsInfo {
+        episodes
+        id
+        info
+        release
+        seasonNo
+        series
+      }
+      series
+      title
+      uri
+    }
+    
+    language
+    maturity
+    publisher {
+      id
+      location
+      name
+    }
+    rating
+    release
+    seasons
+    studio
+    title
+    videoImage
+    videoUrl
+    user {
+      countryCode
+      dob
+      email
+      gender
+      id
+      password
+      userName
+      profile_img
+    }
+  }
+}
+

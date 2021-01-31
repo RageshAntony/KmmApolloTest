@@ -1,0 +1,2492 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: query_root
+    mutation: mutation_root
+    subscription: subscription_root
+}
+
+"columns and relationships of \"Series\""
+type Series {
+    cast(
+        "JSON select path"
+        path: String
+    ): jsonb!
+    "An object relationship"
+    category: category!
+    categoryId: uuid!
+    createdBy: uuid!
+    description: String!
+    "An array relationship"
+    episodesData(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): [episodesData!]!
+    "An aggregated array relationship"
+    episodesData_aggregate(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): episodesData_aggregate!
+    id: uuid!
+    language: String!
+    maturity: Int!
+    "An object relationship"
+    publisher: studio!
+    rating: String!
+    release: date!
+    seasons: Int!
+    "An array relationship"
+    seasonsInfos(
+        "distinct select on columns"
+        distinct_on: [seasonsInfo_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [seasonsInfo_order_by!],
+        "filter the rows returned"
+        where: seasonsInfo_bool_exp
+    ): [seasonsInfo!]!
+    "An aggregated array relationship"
+    seasonsInfos_aggregate(
+        "distinct select on columns"
+        distinct_on: [seasonsInfo_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [seasonsInfo_order_by!],
+        "filter the rows returned"
+        where: seasonsInfo_bool_exp
+    ): seasonsInfo_aggregate!
+    studio: uuid!
+    title: String
+    "An object relationship"
+    user: user!
+    videoImage: String!
+    videoUrl: String!
+}
+
+"aggregated selection of \"Series\""
+type Series_aggregate {
+    aggregate: Series_aggregate_fields
+    nodes: [Series!]!
+}
+
+"aggregate fields of \"Series\""
+type Series_aggregate_fields {
+    avg: Series_avg_fields
+    count(columns: [Series_select_column!], distinct: Boolean): Int
+    max: Series_max_fields
+    min: Series_min_fields
+    stddev: Series_stddev_fields
+    stddev_pop: Series_stddev_pop_fields
+    stddev_samp: Series_stddev_samp_fields
+    sum: Series_sum_fields
+    var_pop: Series_var_pop_fields
+    var_samp: Series_var_samp_fields
+    variance: Series_variance_fields
+}
+
+"aggregate avg on columns"
+type Series_avg_fields {
+    maturity: Float
+    seasons: Float
+}
+
+"aggregate max on columns"
+type Series_max_fields {
+    categoryId: uuid
+    createdBy: uuid
+    description: String
+    id: uuid
+    language: String
+    maturity: Int
+    rating: String
+    release: date
+    seasons: Int
+    studio: uuid
+    title: String
+    videoImage: String
+    videoUrl: String
+}
+
+"aggregate min on columns"
+type Series_min_fields {
+    categoryId: uuid
+    createdBy: uuid
+    description: String
+    id: uuid
+    language: String
+    maturity: Int
+    rating: String
+    release: date
+    seasons: Int
+    studio: uuid
+    title: String
+    videoImage: String
+    videoUrl: String
+}
+
+"response of any mutation on the table \"Series\""
+type Series_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [Series!]!
+}
+
+"aggregate stddev on columns"
+type Series_stddev_fields {
+    maturity: Float
+    seasons: Float
+}
+
+"aggregate stddev_pop on columns"
+type Series_stddev_pop_fields {
+    maturity: Float
+    seasons: Float
+}
+
+"aggregate stddev_samp on columns"
+type Series_stddev_samp_fields {
+    maturity: Float
+    seasons: Float
+}
+
+"aggregate sum on columns"
+type Series_sum_fields {
+    maturity: Int
+    seasons: Int
+}
+
+"aggregate var_pop on columns"
+type Series_var_pop_fields {
+    maturity: Float
+    seasons: Float
+}
+
+"aggregate var_samp on columns"
+type Series_var_samp_fields {
+    maturity: Float
+    seasons: Float
+}
+
+"aggregate variance on columns"
+type Series_variance_fields {
+    maturity: Float
+    seasons: Float
+}
+
+"columns and relationships of \"category\""
+type category {
+    "An array relationship"
+    Series(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): [Series!]!
+    "An aggregated array relationship"
+    Series_aggregate(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): Series_aggregate!
+    category_img: String!
+    description: String!
+    id: uuid!
+    name: String!
+}
+
+"aggregated selection of \"category\""
+type category_aggregate {
+    aggregate: category_aggregate_fields
+    nodes: [category!]!
+}
+
+"aggregate fields of \"category\""
+type category_aggregate_fields {
+    count(columns: [category_select_column!], distinct: Boolean): Int
+    max: category_max_fields
+    min: category_min_fields
+}
+
+"aggregate max on columns"
+type category_max_fields {
+    category_img: String
+    description: String
+    id: uuid
+    name: String
+}
+
+"aggregate min on columns"
+type category_min_fields {
+    category_img: String
+    description: String
+    id: uuid
+    name: String
+}
+
+"response of any mutation on the table \"category\""
+type category_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [category!]!
+}
+
+"columns and relationships of \"episodesData\""
+type episodesData {
+    "An object relationship"
+    Series: Series!
+    airDate: date!
+    desc: String!
+    durationMins: Int!
+    episode_number: Int!
+    id: uuid!
+    poster: String!
+    seasonNo: uuid!
+    "An object relationship"
+    seasonsInfo: seasonsInfo!
+    series: uuid!
+    title: String!
+    uri: String!
+}
+
+"aggregated selection of \"episodesData\""
+type episodesData_aggregate {
+    aggregate: episodesData_aggregate_fields
+    nodes: [episodesData!]!
+}
+
+"aggregate fields of \"episodesData\""
+type episodesData_aggregate_fields {
+    avg: episodesData_avg_fields
+    count(columns: [episodesData_select_column!], distinct: Boolean): Int
+    max: episodesData_max_fields
+    min: episodesData_min_fields
+    stddev: episodesData_stddev_fields
+    stddev_pop: episodesData_stddev_pop_fields
+    stddev_samp: episodesData_stddev_samp_fields
+    sum: episodesData_sum_fields
+    var_pop: episodesData_var_pop_fields
+    var_samp: episodesData_var_samp_fields
+    variance: episodesData_variance_fields
+}
+
+"aggregate avg on columns"
+type episodesData_avg_fields {
+    durationMins: Float
+    episode_number: Float
+}
+
+"aggregate max on columns"
+type episodesData_max_fields {
+    airDate: date
+    desc: String
+    durationMins: Int
+    episode_number: Int
+    id: uuid
+    poster: String
+    seasonNo: uuid
+    series: uuid
+    title: String
+    uri: String
+}
+
+"aggregate min on columns"
+type episodesData_min_fields {
+    airDate: date
+    desc: String
+    durationMins: Int
+    episode_number: Int
+    id: uuid
+    poster: String
+    seasonNo: uuid
+    series: uuid
+    title: String
+    uri: String
+}
+
+"response of any mutation on the table \"episodesData\""
+type episodesData_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [episodesData!]!
+}
+
+"aggregate stddev on columns"
+type episodesData_stddev_fields {
+    durationMins: Float
+    episode_number: Float
+}
+
+"aggregate stddev_pop on columns"
+type episodesData_stddev_pop_fields {
+    durationMins: Float
+    episode_number: Float
+}
+
+"aggregate stddev_samp on columns"
+type episodesData_stddev_samp_fields {
+    durationMins: Float
+    episode_number: Float
+}
+
+"aggregate sum on columns"
+type episodesData_sum_fields {
+    durationMins: Int
+    episode_number: Int
+}
+
+"aggregate var_pop on columns"
+type episodesData_var_pop_fields {
+    durationMins: Float
+    episode_number: Float
+}
+
+"aggregate var_samp on columns"
+type episodesData_var_samp_fields {
+    durationMins: Float
+    episode_number: Float
+}
+
+"aggregate variance on columns"
+type episodesData_variance_fields {
+    durationMins: Float
+    episode_number: Float
+}
+
+"mutation root"
+type mutation_root {
+    "delete data from the table: \"Series\""
+    delete_Series(
+        "filter the rows which have to be deleted"
+        where: Series_bool_exp!
+    ): Series_mutation_response
+    "delete single row from the table: \"Series\""
+    delete_Series_by_pk(id: uuid!): Series
+    "delete data from the table: \"category\""
+    delete_category(
+        "filter the rows which have to be deleted"
+        where: category_bool_exp!
+    ): category_mutation_response
+    "delete single row from the table: \"category\""
+    delete_category_by_pk(id: uuid!): category
+    "delete data from the table: \"episodesData\""
+    delete_episodesData(
+        "filter the rows which have to be deleted"
+        where: episodesData_bool_exp!
+    ): episodesData_mutation_response
+    "delete single row from the table: \"episodesData\""
+    delete_episodesData_by_pk(id: uuid!): episodesData
+    "delete data from the table: \"seasonsInfo\""
+    delete_seasonsInfo(
+        "filter the rows which have to be deleted"
+        where: seasonsInfo_bool_exp!
+    ): seasonsInfo_mutation_response
+    "delete single row from the table: \"seasonsInfo\""
+    delete_seasonsInfo_by_pk(id: uuid!): seasonsInfo
+    "delete data from the table: \"studio\""
+    delete_studio(
+        "filter the rows which have to be deleted"
+        where: studio_bool_exp!
+    ): studio_mutation_response
+    "delete single row from the table: \"studio\""
+    delete_studio_by_pk(id: uuid!): studio
+    "delete data from the table: \"user\""
+    delete_user(
+        "filter the rows which have to be deleted"
+        where: user_bool_exp!
+    ): user_mutation_response
+    "delete single row from the table: \"user\""
+    delete_user_by_pk(id: uuid!): user
+    "insert data into the table: \"Series\""
+    insert_Series(
+        "the rows to be inserted"
+        objects: [Series_insert_input!]!,
+        "on conflict condition"
+        on_conflict: Series_on_conflict
+    ): Series_mutation_response
+    "insert a single row into the table: \"Series\""
+    insert_Series_one(
+        "the row to be inserted"
+        object: Series_insert_input!,
+        "on conflict condition"
+        on_conflict: Series_on_conflict
+    ): Series
+    "insert data into the table: \"category\""
+    insert_category(
+        "the rows to be inserted"
+        objects: [category_insert_input!]!,
+        "on conflict condition"
+        on_conflict: category_on_conflict
+    ): category_mutation_response
+    "insert a single row into the table: \"category\""
+    insert_category_one(
+        "the row to be inserted"
+        object: category_insert_input!,
+        "on conflict condition"
+        on_conflict: category_on_conflict
+    ): category
+    "insert data into the table: \"episodesData\""
+    insert_episodesData(
+        "the rows to be inserted"
+        objects: [episodesData_insert_input!]!,
+        "on conflict condition"
+        on_conflict: episodesData_on_conflict
+    ): episodesData_mutation_response
+    "insert a single row into the table: \"episodesData\""
+    insert_episodesData_one(
+        "the row to be inserted"
+        object: episodesData_insert_input!,
+        "on conflict condition"
+        on_conflict: episodesData_on_conflict
+    ): episodesData
+    "insert data into the table: \"seasonsInfo\""
+    insert_seasonsInfo(
+        "the rows to be inserted"
+        objects: [seasonsInfo_insert_input!]!,
+        "on conflict condition"
+        on_conflict: seasonsInfo_on_conflict
+    ): seasonsInfo_mutation_response
+    "insert a single row into the table: \"seasonsInfo\""
+    insert_seasonsInfo_one(
+        "the row to be inserted"
+        object: seasonsInfo_insert_input!,
+        "on conflict condition"
+        on_conflict: seasonsInfo_on_conflict
+    ): seasonsInfo
+    "insert data into the table: \"studio\""
+    insert_studio(
+        "the rows to be inserted"
+        objects: [studio_insert_input!]!,
+        "on conflict condition"
+        on_conflict: studio_on_conflict
+    ): studio_mutation_response
+    "insert a single row into the table: \"studio\""
+    insert_studio_one(
+        "the row to be inserted"
+        object: studio_insert_input!,
+        "on conflict condition"
+        on_conflict: studio_on_conflict
+    ): studio
+    "insert data into the table: \"user\""
+    insert_user(
+        "the rows to be inserted"
+        objects: [user_insert_input!]!,
+        "on conflict condition"
+        on_conflict: user_on_conflict
+    ): user_mutation_response
+    "insert a single row into the table: \"user\""
+    insert_user_one(
+        "the row to be inserted"
+        object: user_insert_input!,
+        "on conflict condition"
+        on_conflict: user_on_conflict
+    ): user
+    "update data of the table: \"Series\""
+    update_Series(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: Series_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: Series_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: Series_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: Series_delete_key_input,
+        "increments the integer columns with given value of the filtered values"
+        _inc: Series_inc_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: Series_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Series_set_input,
+        "filter the rows which have to be updated"
+        where: Series_bool_exp!
+    ): Series_mutation_response
+    "update single row of the table: \"Series\""
+    update_Series_by_pk(
+        "append existing jsonb value of filtered columns with new jsonb value"
+        _append: Series_append_input,
+        "delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+        _delete_at_path: Series_delete_at_path_input,
+        "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+        _delete_elem: Series_delete_elem_input,
+        "delete key/value pair or string element. key/value pairs are matched based on their key value"
+        _delete_key: Series_delete_key_input,
+        "increments the integer columns with given value of the filtered values"
+        _inc: Series_inc_input,
+        "prepend existing jsonb value of filtered columns with new jsonb value"
+        _prepend: Series_prepend_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: Series_set_input,
+        pk_columns: Series_pk_columns_input!
+    ): Series
+    "update data of the table: \"category\""
+    update_category(
+        "sets the columns of the filtered rows to the given values"
+        _set: category_set_input,
+        "filter the rows which have to be updated"
+        where: category_bool_exp!
+    ): category_mutation_response
+    "update single row of the table: \"category\""
+    update_category_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: category_set_input,
+        pk_columns: category_pk_columns_input!
+    ): category
+    "update data of the table: \"episodesData\""
+    update_episodesData(
+        "increments the integer columns with given value of the filtered values"
+        _inc: episodesData_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: episodesData_set_input,
+        "filter the rows which have to be updated"
+        where: episodesData_bool_exp!
+    ): episodesData_mutation_response
+    "update single row of the table: \"episodesData\""
+    update_episodesData_by_pk(
+        "increments the integer columns with given value of the filtered values"
+        _inc: episodesData_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: episodesData_set_input,
+        pk_columns: episodesData_pk_columns_input!
+    ): episodesData
+    "update data of the table: \"seasonsInfo\""
+    update_seasonsInfo(
+        "increments the integer columns with given value of the filtered values"
+        _inc: seasonsInfo_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: seasonsInfo_set_input,
+        "filter the rows which have to be updated"
+        where: seasonsInfo_bool_exp!
+    ): seasonsInfo_mutation_response
+    "update single row of the table: \"seasonsInfo\""
+    update_seasonsInfo_by_pk(
+        "increments the integer columns with given value of the filtered values"
+        _inc: seasonsInfo_inc_input,
+        "sets the columns of the filtered rows to the given values"
+        _set: seasonsInfo_set_input,
+        pk_columns: seasonsInfo_pk_columns_input!
+    ): seasonsInfo
+    "update data of the table: \"studio\""
+    update_studio(
+        "sets the columns of the filtered rows to the given values"
+        _set: studio_set_input,
+        "filter the rows which have to be updated"
+        where: studio_bool_exp!
+    ): studio_mutation_response
+    "update single row of the table: \"studio\""
+    update_studio_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: studio_set_input,
+        pk_columns: studio_pk_columns_input!
+    ): studio
+    "update data of the table: \"user\""
+    update_user(
+        "sets the columns of the filtered rows to the given values"
+        _set: user_set_input,
+        "filter the rows which have to be updated"
+        where: user_bool_exp!
+    ): user_mutation_response
+    "update single row of the table: \"user\""
+    update_user_by_pk(
+        "sets the columns of the filtered rows to the given values"
+        _set: user_set_input,
+        pk_columns: user_pk_columns_input!
+    ): user
+}
+
+"query root"
+type query_root {
+    "fetch data from the table: \"Series\""
+    Series(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): [Series!]!
+    "fetch aggregated fields from the table: \"Series\""
+    Series_aggregate(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): Series_aggregate!
+    "fetch data from the table: \"Series\" using primary key columns"
+    Series_by_pk(id: uuid!): Series
+    "fetch data from the table: \"category\""
+    category(
+        "distinct select on columns"
+        distinct_on: [category_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [category_order_by!],
+        "filter the rows returned"
+        where: category_bool_exp
+    ): [category!]!
+    "fetch aggregated fields from the table: \"category\""
+    category_aggregate(
+        "distinct select on columns"
+        distinct_on: [category_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [category_order_by!],
+        "filter the rows returned"
+        where: category_bool_exp
+    ): category_aggregate!
+    "fetch data from the table: \"category\" using primary key columns"
+    category_by_pk(id: uuid!): category
+    "fetch data from the table: \"episodesData\""
+    episodesData(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): [episodesData!]!
+    "fetch aggregated fields from the table: \"episodesData\""
+    episodesData_aggregate(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): episodesData_aggregate!
+    "fetch data from the table: \"episodesData\" using primary key columns"
+    episodesData_by_pk(id: uuid!): episodesData
+    "fetch data from the table: \"seasonsInfo\""
+    seasonsInfo(
+        "distinct select on columns"
+        distinct_on: [seasonsInfo_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [seasonsInfo_order_by!],
+        "filter the rows returned"
+        where: seasonsInfo_bool_exp
+    ): [seasonsInfo!]!
+    "fetch aggregated fields from the table: \"seasonsInfo\""
+    seasonsInfo_aggregate(
+        "distinct select on columns"
+        distinct_on: [seasonsInfo_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [seasonsInfo_order_by!],
+        "filter the rows returned"
+        where: seasonsInfo_bool_exp
+    ): seasonsInfo_aggregate!
+    "fetch data from the table: \"seasonsInfo\" using primary key columns"
+    seasonsInfo_by_pk(id: uuid!): seasonsInfo
+    "fetch data from the table: \"studio\""
+    studio(
+        "distinct select on columns"
+        distinct_on: [studio_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [studio_order_by!],
+        "filter the rows returned"
+        where: studio_bool_exp
+    ): [studio!]!
+    "fetch aggregated fields from the table: \"studio\""
+    studio_aggregate(
+        "distinct select on columns"
+        distinct_on: [studio_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [studio_order_by!],
+        "filter the rows returned"
+        where: studio_bool_exp
+    ): studio_aggregate!
+    "fetch data from the table: \"studio\" using primary key columns"
+    studio_by_pk(id: uuid!): studio
+    "fetch data from the table: \"user\""
+    user(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): [user!]!
+    "fetch aggregated fields from the table: \"user\""
+    user_aggregate(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): user_aggregate!
+    "fetch data from the table: \"user\" using primary key columns"
+    user_by_pk(id: uuid!): user
+}
+
+"columns and relationships of \"seasonsInfo\""
+type seasonsInfo {
+    "An object relationship"
+    Series: Series!
+    episodes: Int!
+    "An array relationship"
+    episodesData(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): [episodesData!]!
+    "An aggregated array relationship"
+    episodesData_aggregate(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): episodesData_aggregate!
+    id: uuid!
+    info: String!
+    release: date!
+    seasonNo: Int!
+    series: uuid!
+}
+
+"aggregated selection of \"seasonsInfo\""
+type seasonsInfo_aggregate {
+    aggregate: seasonsInfo_aggregate_fields
+    nodes: [seasonsInfo!]!
+}
+
+"aggregate fields of \"seasonsInfo\""
+type seasonsInfo_aggregate_fields {
+    avg: seasonsInfo_avg_fields
+    count(columns: [seasonsInfo_select_column!], distinct: Boolean): Int
+    max: seasonsInfo_max_fields
+    min: seasonsInfo_min_fields
+    stddev: seasonsInfo_stddev_fields
+    stddev_pop: seasonsInfo_stddev_pop_fields
+    stddev_samp: seasonsInfo_stddev_samp_fields
+    sum: seasonsInfo_sum_fields
+    var_pop: seasonsInfo_var_pop_fields
+    var_samp: seasonsInfo_var_samp_fields
+    variance: seasonsInfo_variance_fields
+}
+
+"aggregate avg on columns"
+type seasonsInfo_avg_fields {
+    episodes: Float
+    seasonNo: Float
+}
+
+"aggregate max on columns"
+type seasonsInfo_max_fields {
+    episodes: Int
+    id: uuid
+    info: String
+    release: date
+    seasonNo: Int
+    series: uuid
+}
+
+"aggregate min on columns"
+type seasonsInfo_min_fields {
+    episodes: Int
+    id: uuid
+    info: String
+    release: date
+    seasonNo: Int
+    series: uuid
+}
+
+"response of any mutation on the table \"seasonsInfo\""
+type seasonsInfo_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [seasonsInfo!]!
+}
+
+"aggregate stddev on columns"
+type seasonsInfo_stddev_fields {
+    episodes: Float
+    seasonNo: Float
+}
+
+"aggregate stddev_pop on columns"
+type seasonsInfo_stddev_pop_fields {
+    episodes: Float
+    seasonNo: Float
+}
+
+"aggregate stddev_samp on columns"
+type seasonsInfo_stddev_samp_fields {
+    episodes: Float
+    seasonNo: Float
+}
+
+"aggregate sum on columns"
+type seasonsInfo_sum_fields {
+    episodes: Int
+    seasonNo: Int
+}
+
+"aggregate var_pop on columns"
+type seasonsInfo_var_pop_fields {
+    episodes: Float
+    seasonNo: Float
+}
+
+"aggregate var_samp on columns"
+type seasonsInfo_var_samp_fields {
+    episodes: Float
+    seasonNo: Float
+}
+
+"aggregate variance on columns"
+type seasonsInfo_variance_fields {
+    episodes: Float
+    seasonNo: Float
+}
+
+"columns and relationships of \"studio\""
+type studio {
+    "An array relationship"
+    Series(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): [Series!]!
+    "An aggregated array relationship"
+    Series_aggregate(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): Series_aggregate!
+    id: uuid!
+    location: String!
+    name: String!
+}
+
+"aggregated selection of \"studio\""
+type studio_aggregate {
+    aggregate: studio_aggregate_fields
+    nodes: [studio!]!
+}
+
+"aggregate fields of \"studio\""
+type studio_aggregate_fields {
+    count(columns: [studio_select_column!], distinct: Boolean): Int
+    max: studio_max_fields
+    min: studio_min_fields
+}
+
+"aggregate max on columns"
+type studio_max_fields {
+    id: uuid
+    location: String
+    name: String
+}
+
+"aggregate min on columns"
+type studio_min_fields {
+    id: uuid
+    location: String
+    name: String
+}
+
+"response of any mutation on the table \"studio\""
+type studio_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [studio!]!
+}
+
+"subscription root"
+type subscription_root {
+    "fetch data from the table: \"Series\""
+    Series(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): [Series!]!
+    "fetch aggregated fields from the table: \"Series\""
+    Series_aggregate(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): Series_aggregate!
+    "fetch data from the table: \"Series\" using primary key columns"
+    Series_by_pk(id: uuid!): Series
+    "fetch data from the table: \"category\""
+    category(
+        "distinct select on columns"
+        distinct_on: [category_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [category_order_by!],
+        "filter the rows returned"
+        where: category_bool_exp
+    ): [category!]!
+    "fetch aggregated fields from the table: \"category\""
+    category_aggregate(
+        "distinct select on columns"
+        distinct_on: [category_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [category_order_by!],
+        "filter the rows returned"
+        where: category_bool_exp
+    ): category_aggregate!
+    "fetch data from the table: \"category\" using primary key columns"
+    category_by_pk(id: uuid!): category
+    "fetch data from the table: \"episodesData\""
+    episodesData(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): [episodesData!]!
+    "fetch aggregated fields from the table: \"episodesData\""
+    episodesData_aggregate(
+        "distinct select on columns"
+        distinct_on: [episodesData_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [episodesData_order_by!],
+        "filter the rows returned"
+        where: episodesData_bool_exp
+    ): episodesData_aggregate!
+    "fetch data from the table: \"episodesData\" using primary key columns"
+    episodesData_by_pk(id: uuid!): episodesData
+    "fetch data from the table: \"seasonsInfo\""
+    seasonsInfo(
+        "distinct select on columns"
+        distinct_on: [seasonsInfo_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [seasonsInfo_order_by!],
+        "filter the rows returned"
+        where: seasonsInfo_bool_exp
+    ): [seasonsInfo!]!
+    "fetch aggregated fields from the table: \"seasonsInfo\""
+    seasonsInfo_aggregate(
+        "distinct select on columns"
+        distinct_on: [seasonsInfo_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [seasonsInfo_order_by!],
+        "filter the rows returned"
+        where: seasonsInfo_bool_exp
+    ): seasonsInfo_aggregate!
+    "fetch data from the table: \"seasonsInfo\" using primary key columns"
+    seasonsInfo_by_pk(id: uuid!): seasonsInfo
+    "fetch data from the table: \"studio\""
+    studio(
+        "distinct select on columns"
+        distinct_on: [studio_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [studio_order_by!],
+        "filter the rows returned"
+        where: studio_bool_exp
+    ): [studio!]!
+    "fetch aggregated fields from the table: \"studio\""
+    studio_aggregate(
+        "distinct select on columns"
+        distinct_on: [studio_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [studio_order_by!],
+        "filter the rows returned"
+        where: studio_bool_exp
+    ): studio_aggregate!
+    "fetch data from the table: \"studio\" using primary key columns"
+    studio_by_pk(id: uuid!): studio
+    "fetch data from the table: \"user\""
+    user(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): [user!]!
+    "fetch aggregated fields from the table: \"user\""
+    user_aggregate(
+        "distinct select on columns"
+        distinct_on: [user_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [user_order_by!],
+        "filter the rows returned"
+        where: user_bool_exp
+    ): user_aggregate!
+    "fetch data from the table: \"user\" using primary key columns"
+    user_by_pk(id: uuid!): user
+}
+
+"columns and relationships of \"user\""
+type user {
+    "An array relationship"
+    Series(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): [Series!]!
+    "An aggregated array relationship"
+    Series_aggregate(
+        "distinct select on columns"
+        distinct_on: [Series_select_column!],
+        "limit the number of rows returned"
+        limit: Int,
+        "skip the first n rows. Use only with order_by"
+        offset: Int,
+        "sort the rows by one or more columns"
+        order_by: [Series_order_by!],
+        "filter the rows returned"
+        where: Series_bool_exp
+    ): Series_aggregate!
+    countryCode: String!
+    dob: date!
+    email: String!
+    gender: String!
+    id: uuid!
+    password: String!
+    profile_img: String!
+    userName: String!
+}
+
+"aggregated selection of \"user\""
+type user_aggregate {
+    aggregate: user_aggregate_fields
+    nodes: [user!]!
+}
+
+"aggregate fields of \"user\""
+type user_aggregate_fields {
+    count(columns: [user_select_column!], distinct: Boolean): Int
+    max: user_max_fields
+    min: user_min_fields
+}
+
+"aggregate max on columns"
+type user_max_fields {
+    countryCode: String
+    dob: date
+    email: String
+    gender: String
+    id: uuid
+    password: String
+    profile_img: String
+    userName: String
+}
+
+"aggregate min on columns"
+type user_min_fields {
+    countryCode: String
+    dob: date
+    email: String
+    gender: String
+    id: uuid
+    password: String
+    profile_img: String
+    userName: String
+}
+
+"response of any mutation on the table \"user\""
+type user_mutation_response {
+    "number of affected rows by the mutation"
+    affected_rows: Int!
+    "data of the affected rows by the mutation"
+    returning: [user!]!
+}
+
+"unique or primary key constraints on table \"Series\""
+enum Series_constraint {
+    "unique or primary key constraint"
+    Series_pkey
+}
+
+"select columns of table \"Series\""
+enum Series_select_column {
+    "column name"
+    cast
+    "column name"
+    categoryId
+    "column name"
+    createdBy
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    language
+    "column name"
+    maturity
+    "column name"
+    rating
+    "column name"
+    release
+    "column name"
+    seasons
+    "column name"
+    studio
+    "column name"
+    title
+    "column name"
+    videoImage
+    "column name"
+    videoUrl
+}
+
+"update columns of table \"Series\""
+enum Series_update_column {
+    "column name"
+    cast
+    "column name"
+    categoryId
+    "column name"
+    createdBy
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    language
+    "column name"
+    maturity
+    "column name"
+    rating
+    "column name"
+    release
+    "column name"
+    seasons
+    "column name"
+    studio
+    "column name"
+    title
+    "column name"
+    videoImage
+    "column name"
+    videoUrl
+}
+
+"unique or primary key constraints on table \"category\""
+enum category_constraint {
+    "unique or primary key constraint"
+    category_pkey
+}
+
+"select columns of table \"category\""
+enum category_select_column {
+    "column name"
+    category_img
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"update columns of table \"category\""
+enum category_update_column {
+    "column name"
+    category_img
+    "column name"
+    description
+    "column name"
+    id
+    "column name"
+    name
+}
+
+"unique or primary key constraints on table \"episodesData\""
+enum episodesData_constraint {
+    "unique or primary key constraint"
+    episodesData_pkey
+}
+
+"select columns of table \"episodesData\""
+enum episodesData_select_column {
+    "column name"
+    airDate
+    "column name"
+    desc
+    "column name"
+    durationMins
+    "column name"
+    episode_number
+    "column name"
+    id
+    "column name"
+    poster
+    "column name"
+    seasonNo
+    "column name"
+    series
+    "column name"
+    title
+    "column name"
+    uri
+}
+
+"update columns of table \"episodesData\""
+enum episodesData_update_column {
+    "column name"
+    airDate
+    "column name"
+    desc
+    "column name"
+    durationMins
+    "column name"
+    episode_number
+    "column name"
+    id
+    "column name"
+    poster
+    "column name"
+    seasonNo
+    "column name"
+    series
+    "column name"
+    title
+    "column name"
+    uri
+}
+
+"column ordering options"
+enum order_by {
+    "in the ascending order, nulls last"
+    asc
+    "in the ascending order, nulls first"
+    asc_nulls_first
+    "in the ascending order, nulls last"
+    asc_nulls_last
+    "in the descending order, nulls first"
+    desc
+    "in the descending order, nulls first"
+    desc_nulls_first
+    "in the descending order, nulls last"
+    desc_nulls_last
+}
+
+"unique or primary key constraints on table \"seasonsInfo\""
+enum seasonsInfo_constraint {
+    "unique or primary key constraint"
+    seasonsInfo_pkey
+}
+
+"select columns of table \"seasonsInfo\""
+enum seasonsInfo_select_column {
+    "column name"
+    episodes
+    "column name"
+    id
+    "column name"
+    info
+    "column name"
+    release
+    "column name"
+    seasonNo
+    "column name"
+    series
+}
+
+"update columns of table \"seasonsInfo\""
+enum seasonsInfo_update_column {
+    "column name"
+    episodes
+    "column name"
+    id
+    "column name"
+    info
+    "column name"
+    release
+    "column name"
+    seasonNo
+    "column name"
+    series
+}
+
+"unique or primary key constraints on table \"studio\""
+enum studio_constraint {
+    "unique or primary key constraint"
+    studio_pkey
+}
+
+"select columns of table \"studio\""
+enum studio_select_column {
+    "column name"
+    id
+    "column name"
+    location
+    "column name"
+    name
+}
+
+"update columns of table \"studio\""
+enum studio_update_column {
+    "column name"
+    id
+    "column name"
+    location
+    "column name"
+    name
+}
+
+"unique or primary key constraints on table \"user\""
+enum user_constraint {
+    "unique or primary key constraint"
+    user_pkey
+}
+
+"select columns of table \"user\""
+enum user_select_column {
+    "column name"
+    countryCode
+    "column name"
+    dob
+    "column name"
+    email
+    "column name"
+    gender
+    "column name"
+    id
+    "column name"
+    password
+    "column name"
+    profile_img
+    "column name"
+    userName
+}
+
+"update columns of table \"user\""
+enum user_update_column {
+    "column name"
+    countryCode
+    "column name"
+    dob
+    "column name"
+    email
+    "column name"
+    gender
+    "column name"
+    id
+    "column name"
+    password
+    "column name"
+    profile_img
+    "column name"
+    userName
+}
+
+"expression to compare columns of type Int. All fields are combined with logical 'AND'."
+input Int_comparison_exp {
+    _eq: Int
+    _gt: Int
+    _gte: Int
+    _in: [Int!]
+    _is_null: Boolean
+    _lt: Int
+    _lte: Int
+    _neq: Int
+    _nin: [Int!]
+}
+
+"order by aggregate values of table \"Series\""
+input Series_aggregate_order_by {
+    avg: Series_avg_order_by
+    count: order_by
+    max: Series_max_order_by
+    min: Series_min_order_by
+    stddev: Series_stddev_order_by
+    stddev_pop: Series_stddev_pop_order_by
+    stddev_samp: Series_stddev_samp_order_by
+    sum: Series_sum_order_by
+    var_pop: Series_var_pop_order_by
+    var_samp: Series_var_samp_order_by
+    variance: Series_variance_order_by
+}
+
+"append existing jsonb value of filtered columns with new jsonb value"
+input Series_append_input {
+    cast: jsonb
+}
+
+"input type for inserting array relation for remote table \"Series\""
+input Series_arr_rel_insert_input {
+    data: [Series_insert_input!]!
+    on_conflict: Series_on_conflict
+}
+
+"order by avg() on columns of table \"Series\""
+input Series_avg_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"Boolean expression to filter rows from the table \"Series\". All fields are combined with a logical 'AND'."
+input Series_bool_exp {
+    _and: [Series_bool_exp]
+    _not: Series_bool_exp
+    _or: [Series_bool_exp]
+    cast: jsonb_comparison_exp
+    category: category_bool_exp
+    categoryId: uuid_comparison_exp
+    createdBy: uuid_comparison_exp
+    description: String_comparison_exp
+    episodesData: episodesData_bool_exp
+    id: uuid_comparison_exp
+    language: String_comparison_exp
+    maturity: Int_comparison_exp
+    publisher: studio_bool_exp
+    rating: String_comparison_exp
+    release: date_comparison_exp
+    seasons: Int_comparison_exp
+    seasonsInfos: seasonsInfo_bool_exp
+    studio: uuid_comparison_exp
+    title: String_comparison_exp
+    user: user_bool_exp
+    videoImage: String_comparison_exp
+    videoUrl: String_comparison_exp
+}
+
+"delete the field or element with specified path (for JSON arrays, negative integers count from the end)"
+input Series_delete_at_path_input {
+    cast: [String]
+}
+
+"delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array"
+input Series_delete_elem_input {
+    cast: Int
+}
+
+"delete key/value pair or string element. key/value pairs are matched based on their key value"
+input Series_delete_key_input {
+    cast: String
+}
+
+"input type for incrementing integer column in table \"Series\""
+input Series_inc_input {
+    maturity: Int
+    seasons: Int
+}
+
+"input type for inserting data into table \"Series\""
+input Series_insert_input {
+    cast: jsonb
+    category: category_obj_rel_insert_input
+    categoryId: uuid
+    createdBy: uuid
+    description: String
+    episodesData: episodesData_arr_rel_insert_input
+    id: uuid
+    language: String
+    maturity: Int
+    publisher: studio_obj_rel_insert_input
+    rating: String
+    release: date
+    seasons: Int
+    seasonsInfos: seasonsInfo_arr_rel_insert_input
+    studio: uuid
+    title: String
+    user: user_obj_rel_insert_input
+    videoImage: String
+    videoUrl: String
+}
+
+"order by max() on columns of table \"Series\""
+input Series_max_order_by {
+    categoryId: order_by
+    createdBy: order_by
+    description: order_by
+    id: order_by
+    language: order_by
+    maturity: order_by
+    rating: order_by
+    release: order_by
+    seasons: order_by
+    studio: order_by
+    title: order_by
+    videoImage: order_by
+    videoUrl: order_by
+}
+
+"order by min() on columns of table \"Series\""
+input Series_min_order_by {
+    categoryId: order_by
+    createdBy: order_by
+    description: order_by
+    id: order_by
+    language: order_by
+    maturity: order_by
+    rating: order_by
+    release: order_by
+    seasons: order_by
+    studio: order_by
+    title: order_by
+    videoImage: order_by
+    videoUrl: order_by
+}
+
+"input type for inserting object relation for remote table \"Series\""
+input Series_obj_rel_insert_input {
+    data: Series_insert_input!
+    on_conflict: Series_on_conflict
+}
+
+"on conflict condition type for table \"Series\""
+input Series_on_conflict {
+    constraint: Series_constraint!
+    update_columns: [Series_update_column!]!
+    where: Series_bool_exp
+}
+
+"ordering options when selecting data from \"Series\""
+input Series_order_by {
+    cast: order_by
+    category: category_order_by
+    categoryId: order_by
+    createdBy: order_by
+    description: order_by
+    episodesData_aggregate: episodesData_aggregate_order_by
+    id: order_by
+    language: order_by
+    maturity: order_by
+    publisher: studio_order_by
+    rating: order_by
+    release: order_by
+    seasons: order_by
+    seasonsInfos_aggregate: seasonsInfo_aggregate_order_by
+    studio: order_by
+    title: order_by
+    user: user_order_by
+    videoImage: order_by
+    videoUrl: order_by
+}
+
+"primary key columns input for table: \"Series\""
+input Series_pk_columns_input {
+    id: uuid!
+}
+
+"prepend existing jsonb value of filtered columns with new jsonb value"
+input Series_prepend_input {
+    cast: jsonb
+}
+
+"input type for updating data in table \"Series\""
+input Series_set_input {
+    cast: jsonb
+    categoryId: uuid
+    createdBy: uuid
+    description: String
+    id: uuid
+    language: String
+    maturity: Int
+    rating: String
+    release: date
+    seasons: Int
+    studio: uuid
+    title: String
+    videoImage: String
+    videoUrl: String
+}
+
+"order by stddev() on columns of table \"Series\""
+input Series_stddev_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"order by stddev_pop() on columns of table \"Series\""
+input Series_stddev_pop_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"order by stddev_samp() on columns of table \"Series\""
+input Series_stddev_samp_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"order by sum() on columns of table \"Series\""
+input Series_sum_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"order by var_pop() on columns of table \"Series\""
+input Series_var_pop_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"order by var_samp() on columns of table \"Series\""
+input Series_var_samp_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"order by variance() on columns of table \"Series\""
+input Series_variance_order_by {
+    maturity: order_by
+    seasons: order_by
+}
+
+"expression to compare columns of type String. All fields are combined with logical 'AND'."
+input String_comparison_exp {
+    _eq: String
+    _gt: String
+    _gte: String
+    _ilike: String
+    _in: [String!]
+    _is_null: Boolean
+    _like: String
+    _lt: String
+    _lte: String
+    _neq: String
+    _nilike: String
+    _nin: [String!]
+    _nlike: String
+    _nsimilar: String
+    _similar: String
+}
+
+"order by aggregate values of table \"category\""
+input category_aggregate_order_by {
+    count: order_by
+    max: category_max_order_by
+    min: category_min_order_by
+}
+
+"input type for inserting array relation for remote table \"category\""
+input category_arr_rel_insert_input {
+    data: [category_insert_input!]!
+    on_conflict: category_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"category\". All fields are combined with a logical 'AND'."
+input category_bool_exp {
+    Series: Series_bool_exp
+    _and: [category_bool_exp]
+    _not: category_bool_exp
+    _or: [category_bool_exp]
+    category_img: String_comparison_exp
+    description: String_comparison_exp
+    id: uuid_comparison_exp
+    name: String_comparison_exp
+}
+
+"input type for inserting data into table \"category\""
+input category_insert_input {
+    Series: Series_arr_rel_insert_input
+    category_img: String
+    description: String
+    id: uuid
+    name: String
+}
+
+"order by max() on columns of table \"category\""
+input category_max_order_by {
+    category_img: order_by
+    description: order_by
+    id: order_by
+    name: order_by
+}
+
+"order by min() on columns of table \"category\""
+input category_min_order_by {
+    category_img: order_by
+    description: order_by
+    id: order_by
+    name: order_by
+}
+
+"input type for inserting object relation for remote table \"category\""
+input category_obj_rel_insert_input {
+    data: category_insert_input!
+    on_conflict: category_on_conflict
+}
+
+"on conflict condition type for table \"category\""
+input category_on_conflict {
+    constraint: category_constraint!
+    update_columns: [category_update_column!]!
+    where: category_bool_exp
+}
+
+"ordering options when selecting data from \"category\""
+input category_order_by {
+    Series_aggregate: Series_aggregate_order_by
+    category_img: order_by
+    description: order_by
+    id: order_by
+    name: order_by
+}
+
+"primary key columns input for table: \"category\""
+input category_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"category\""
+input category_set_input {
+    category_img: String
+    description: String
+    id: uuid
+    name: String
+}
+
+"expression to compare columns of type date. All fields are combined with logical 'AND'."
+input date_comparison_exp {
+    _eq: date
+    _gt: date
+    _gte: date
+    _in: [date!]
+    _is_null: Boolean
+    _lt: date
+    _lte: date
+    _neq: date
+    _nin: [date!]
+}
+
+"order by aggregate values of table \"episodesData\""
+input episodesData_aggregate_order_by {
+    avg: episodesData_avg_order_by
+    count: order_by
+    max: episodesData_max_order_by
+    min: episodesData_min_order_by
+    stddev: episodesData_stddev_order_by
+    stddev_pop: episodesData_stddev_pop_order_by
+    stddev_samp: episodesData_stddev_samp_order_by
+    sum: episodesData_sum_order_by
+    var_pop: episodesData_var_pop_order_by
+    var_samp: episodesData_var_samp_order_by
+    variance: episodesData_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"episodesData\""
+input episodesData_arr_rel_insert_input {
+    data: [episodesData_insert_input!]!
+    on_conflict: episodesData_on_conflict
+}
+
+"order by avg() on columns of table \"episodesData\""
+input episodesData_avg_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"Boolean expression to filter rows from the table \"episodesData\". All fields are combined with a logical 'AND'."
+input episodesData_bool_exp {
+    Series: Series_bool_exp
+    _and: [episodesData_bool_exp]
+    _not: episodesData_bool_exp
+    _or: [episodesData_bool_exp]
+    airDate: date_comparison_exp
+    desc: String_comparison_exp
+    durationMins: Int_comparison_exp
+    episode_number: Int_comparison_exp
+    id: uuid_comparison_exp
+    poster: String_comparison_exp
+    seasonNo: uuid_comparison_exp
+    seasonsInfo: seasonsInfo_bool_exp
+    series: uuid_comparison_exp
+    title: String_comparison_exp
+    uri: String_comparison_exp
+}
+
+"input type for incrementing integer column in table \"episodesData\""
+input episodesData_inc_input {
+    durationMins: Int
+    episode_number: Int
+}
+
+"input type for inserting data into table \"episodesData\""
+input episodesData_insert_input {
+    Series: Series_obj_rel_insert_input
+    airDate: date
+    desc: String
+    durationMins: Int
+    episode_number: Int
+    id: uuid
+    poster: String
+    seasonNo: uuid
+    seasonsInfo: seasonsInfo_obj_rel_insert_input
+    series: uuid
+    title: String
+    uri: String
+}
+
+"order by max() on columns of table \"episodesData\""
+input episodesData_max_order_by {
+    airDate: order_by
+    desc: order_by
+    durationMins: order_by
+    episode_number: order_by
+    id: order_by
+    poster: order_by
+    seasonNo: order_by
+    series: order_by
+    title: order_by
+    uri: order_by
+}
+
+"order by min() on columns of table \"episodesData\""
+input episodesData_min_order_by {
+    airDate: order_by
+    desc: order_by
+    durationMins: order_by
+    episode_number: order_by
+    id: order_by
+    poster: order_by
+    seasonNo: order_by
+    series: order_by
+    title: order_by
+    uri: order_by
+}
+
+"input type for inserting object relation for remote table \"episodesData\""
+input episodesData_obj_rel_insert_input {
+    data: episodesData_insert_input!
+    on_conflict: episodesData_on_conflict
+}
+
+"on conflict condition type for table \"episodesData\""
+input episodesData_on_conflict {
+    constraint: episodesData_constraint!
+    update_columns: [episodesData_update_column!]!
+    where: episodesData_bool_exp
+}
+
+"ordering options when selecting data from \"episodesData\""
+input episodesData_order_by {
+    Series: Series_order_by
+    airDate: order_by
+    desc: order_by
+    durationMins: order_by
+    episode_number: order_by
+    id: order_by
+    poster: order_by
+    seasonNo: order_by
+    seasonsInfo: seasonsInfo_order_by
+    series: order_by
+    title: order_by
+    uri: order_by
+}
+
+"primary key columns input for table: \"episodesData\""
+input episodesData_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"episodesData\""
+input episodesData_set_input {
+    airDate: date
+    desc: String
+    durationMins: Int
+    episode_number: Int
+    id: uuid
+    poster: String
+    seasonNo: uuid
+    series: uuid
+    title: String
+    uri: String
+}
+
+"order by stddev() on columns of table \"episodesData\""
+input episodesData_stddev_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"order by stddev_pop() on columns of table \"episodesData\""
+input episodesData_stddev_pop_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"order by stddev_samp() on columns of table \"episodesData\""
+input episodesData_stddev_samp_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"order by sum() on columns of table \"episodesData\""
+input episodesData_sum_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"order by var_pop() on columns of table \"episodesData\""
+input episodesData_var_pop_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"order by var_samp() on columns of table \"episodesData\""
+input episodesData_var_samp_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"order by variance() on columns of table \"episodesData\""
+input episodesData_variance_order_by {
+    durationMins: order_by
+    episode_number: order_by
+}
+
+"expression to compare columns of type jsonb. All fields are combined with logical 'AND'."
+input jsonb_comparison_exp {
+    "is the column contained in the given json value"
+    _contained_in: jsonb
+    "does the column contain the given json value at the top level"
+    _contains: jsonb
+    _eq: jsonb
+    _gt: jsonb
+    _gte: jsonb
+    "does the string exist as a top-level key in the column"
+    _has_key: String
+    "do all of these strings exist as top-level keys in the column"
+    _has_keys_all: [String!]
+    "do any of these strings exist as top-level keys in the column"
+    _has_keys_any: [String!]
+    _in: [jsonb!]
+    _is_null: Boolean
+    _lt: jsonb
+    _lte: jsonb
+    _neq: jsonb
+    _nin: [jsonb!]
+}
+
+"order by aggregate values of table \"seasonsInfo\""
+input seasonsInfo_aggregate_order_by {
+    avg: seasonsInfo_avg_order_by
+    count: order_by
+    max: seasonsInfo_max_order_by
+    min: seasonsInfo_min_order_by
+    stddev: seasonsInfo_stddev_order_by
+    stddev_pop: seasonsInfo_stddev_pop_order_by
+    stddev_samp: seasonsInfo_stddev_samp_order_by
+    sum: seasonsInfo_sum_order_by
+    var_pop: seasonsInfo_var_pop_order_by
+    var_samp: seasonsInfo_var_samp_order_by
+    variance: seasonsInfo_variance_order_by
+}
+
+"input type for inserting array relation for remote table \"seasonsInfo\""
+input seasonsInfo_arr_rel_insert_input {
+    data: [seasonsInfo_insert_input!]!
+    on_conflict: seasonsInfo_on_conflict
+}
+
+"order by avg() on columns of table \"seasonsInfo\""
+input seasonsInfo_avg_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"Boolean expression to filter rows from the table \"seasonsInfo\". All fields are combined with a logical 'AND'."
+input seasonsInfo_bool_exp {
+    Series: Series_bool_exp
+    _and: [seasonsInfo_bool_exp]
+    _not: seasonsInfo_bool_exp
+    _or: [seasonsInfo_bool_exp]
+    episodes: Int_comparison_exp
+    episodesData: episodesData_bool_exp
+    id: uuid_comparison_exp
+    info: String_comparison_exp
+    release: date_comparison_exp
+    seasonNo: Int_comparison_exp
+    series: uuid_comparison_exp
+}
+
+"input type for incrementing integer column in table \"seasonsInfo\""
+input seasonsInfo_inc_input {
+    episodes: Int
+    seasonNo: Int
+}
+
+"input type for inserting data into table \"seasonsInfo\""
+input seasonsInfo_insert_input {
+    Series: Series_obj_rel_insert_input
+    episodes: Int
+    episodesData: episodesData_arr_rel_insert_input
+    id: uuid
+    info: String
+    release: date
+    seasonNo: Int
+    series: uuid
+}
+
+"order by max() on columns of table \"seasonsInfo\""
+input seasonsInfo_max_order_by {
+    episodes: order_by
+    id: order_by
+    info: order_by
+    release: order_by
+    seasonNo: order_by
+    series: order_by
+}
+
+"order by min() on columns of table \"seasonsInfo\""
+input seasonsInfo_min_order_by {
+    episodes: order_by
+    id: order_by
+    info: order_by
+    release: order_by
+    seasonNo: order_by
+    series: order_by
+}
+
+"input type for inserting object relation for remote table \"seasonsInfo\""
+input seasonsInfo_obj_rel_insert_input {
+    data: seasonsInfo_insert_input!
+    on_conflict: seasonsInfo_on_conflict
+}
+
+"on conflict condition type for table \"seasonsInfo\""
+input seasonsInfo_on_conflict {
+    constraint: seasonsInfo_constraint!
+    update_columns: [seasonsInfo_update_column!]!
+    where: seasonsInfo_bool_exp
+}
+
+"ordering options when selecting data from \"seasonsInfo\""
+input seasonsInfo_order_by {
+    Series: Series_order_by
+    episodes: order_by
+    episodesData_aggregate: episodesData_aggregate_order_by
+    id: order_by
+    info: order_by
+    release: order_by
+    seasonNo: order_by
+    series: order_by
+}
+
+"primary key columns input for table: \"seasonsInfo\""
+input seasonsInfo_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"seasonsInfo\""
+input seasonsInfo_set_input {
+    episodes: Int
+    id: uuid
+    info: String
+    release: date
+    seasonNo: Int
+    series: uuid
+}
+
+"order by stddev() on columns of table \"seasonsInfo\""
+input seasonsInfo_stddev_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"order by stddev_pop() on columns of table \"seasonsInfo\""
+input seasonsInfo_stddev_pop_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"order by stddev_samp() on columns of table \"seasonsInfo\""
+input seasonsInfo_stddev_samp_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"order by sum() on columns of table \"seasonsInfo\""
+input seasonsInfo_sum_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"order by var_pop() on columns of table \"seasonsInfo\""
+input seasonsInfo_var_pop_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"order by var_samp() on columns of table \"seasonsInfo\""
+input seasonsInfo_var_samp_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"order by variance() on columns of table \"seasonsInfo\""
+input seasonsInfo_variance_order_by {
+    episodes: order_by
+    seasonNo: order_by
+}
+
+"order by aggregate values of table \"studio\""
+input studio_aggregate_order_by {
+    count: order_by
+    max: studio_max_order_by
+    min: studio_min_order_by
+}
+
+"input type for inserting array relation for remote table \"studio\""
+input studio_arr_rel_insert_input {
+    data: [studio_insert_input!]!
+    on_conflict: studio_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"studio\". All fields are combined with a logical 'AND'."
+input studio_bool_exp {
+    Series: Series_bool_exp
+    _and: [studio_bool_exp]
+    _not: studio_bool_exp
+    _or: [studio_bool_exp]
+    id: uuid_comparison_exp
+    location: String_comparison_exp
+    name: String_comparison_exp
+}
+
+"input type for inserting data into table \"studio\""
+input studio_insert_input {
+    Series: Series_arr_rel_insert_input
+    id: uuid
+    location: String
+    name: String
+}
+
+"order by max() on columns of table \"studio\""
+input studio_max_order_by {
+    id: order_by
+    location: order_by
+    name: order_by
+}
+
+"order by min() on columns of table \"studio\""
+input studio_min_order_by {
+    id: order_by
+    location: order_by
+    name: order_by
+}
+
+"input type for inserting object relation for remote table \"studio\""
+input studio_obj_rel_insert_input {
+    data: studio_insert_input!
+    on_conflict: studio_on_conflict
+}
+
+"on conflict condition type for table \"studio\""
+input studio_on_conflict {
+    constraint: studio_constraint!
+    update_columns: [studio_update_column!]!
+    where: studio_bool_exp
+}
+
+"ordering options when selecting data from \"studio\""
+input studio_order_by {
+    Series_aggregate: Series_aggregate_order_by
+    id: order_by
+    location: order_by
+    name: order_by
+}
+
+"primary key columns input for table: \"studio\""
+input studio_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"studio\""
+input studio_set_input {
+    id: uuid
+    location: String
+    name: String
+}
+
+"order by aggregate values of table \"user\""
+input user_aggregate_order_by {
+    count: order_by
+    max: user_max_order_by
+    min: user_min_order_by
+}
+
+"input type for inserting array relation for remote table \"user\""
+input user_arr_rel_insert_input {
+    data: [user_insert_input!]!
+    on_conflict: user_on_conflict
+}
+
+"Boolean expression to filter rows from the table \"user\". All fields are combined with a logical 'AND'."
+input user_bool_exp {
+    Series: Series_bool_exp
+    _and: [user_bool_exp]
+    _not: user_bool_exp
+    _or: [user_bool_exp]
+    countryCode: String_comparison_exp
+    dob: date_comparison_exp
+    email: String_comparison_exp
+    gender: String_comparison_exp
+    id: uuid_comparison_exp
+    password: String_comparison_exp
+    profile_img: String_comparison_exp
+    userName: String_comparison_exp
+}
+
+"input type for inserting data into table \"user\""
+input user_insert_input {
+    Series: Series_arr_rel_insert_input
+    countryCode: String
+    dob: date
+    email: String
+    gender: String
+    id: uuid
+    password: String
+    profile_img: String
+    userName: String
+}
+
+"order by max() on columns of table \"user\""
+input user_max_order_by {
+    countryCode: order_by
+    dob: order_by
+    email: order_by
+    gender: order_by
+    id: order_by
+    password: order_by
+    profile_img: order_by
+    userName: order_by
+}
+
+"order by min() on columns of table \"user\""
+input user_min_order_by {
+    countryCode: order_by
+    dob: order_by
+    email: order_by
+    gender: order_by
+    id: order_by
+    password: order_by
+    profile_img: order_by
+    userName: order_by
+}
+
+"input type for inserting object relation for remote table \"user\""
+input user_obj_rel_insert_input {
+    data: user_insert_input!
+    on_conflict: user_on_conflict
+}
+
+"on conflict condition type for table \"user\""
+input user_on_conflict {
+    constraint: user_constraint!
+    update_columns: [user_update_column!]!
+    where: user_bool_exp
+}
+
+"ordering options when selecting data from \"user\""
+input user_order_by {
+    Series_aggregate: Series_aggregate_order_by
+    countryCode: order_by
+    dob: order_by
+    email: order_by
+    gender: order_by
+    id: order_by
+    password: order_by
+    profile_img: order_by
+    userName: order_by
+}
+
+"primary key columns input for table: \"user\""
+input user_pk_columns_input {
+    id: uuid!
+}
+
+"input type for updating data in table \"user\""
+input user_set_input {
+    countryCode: String
+    dob: date
+    email: String
+    gender: String
+    id: uuid
+    password: String
+    profile_img: String
+    userName: String
+}
+
+"expression to compare columns of type uuid. All fields are combined with logical 'AND'."
+input uuid_comparison_exp {
+    _eq: uuid
+    _gt: uuid
+    _gte: uuid
+    _in: [uuid!]
+    _is_null: Boolean
+    _lt: uuid
+    _lte: uuid
+    _neq: uuid
+    _nin: [uuid!]
+}
+
+
+scalar date
+
+scalar jsonb
+
+scalar uuid

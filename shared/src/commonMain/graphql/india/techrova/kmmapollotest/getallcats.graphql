@@ -1,0 +1,8 @@
+query getAllCategories {
+    category {
+        category_img
+        description
+        id
+        name
+    }
+}
