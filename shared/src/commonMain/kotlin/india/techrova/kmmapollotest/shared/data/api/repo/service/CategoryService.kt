@@ -38,6 +38,6 @@ class CategoryService : CategoryRepo {
                     emit(NetworkStatus.data<List<GetAllCategoriesQuery.Category>>(it.data?.category as List<GetAllCategoriesQuery.Category> ) )
                 }
             }
-        }.wrap()
+        }.wrap<NetworkStatus<List<GetAllCategoriesQuery.Category>>> ()
     }
 }
