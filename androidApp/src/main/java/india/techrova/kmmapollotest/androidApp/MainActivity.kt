@@ -5,8 +5,8 @@ import android.os.Bundle
 import india.techrova.kmmapollotest.shared.Greeting
 import android.widget.TextView
 import india.techrova.kmmapollotest.GetAllCategoriesQuery
-import india.techrova.kmmapollotest.data.api.NetworkStatus
-import india.techrova.kmmapollotest.data.api.repo.service.CategoryService
+import india.techrova.kmmapollotest.shared.data.api.NetworkStatus
+import india.techrova.kmmapollotest.shared.data.api.repo.service.CategoryService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.collect
