@@ -32,10 +32,10 @@ class MainActivity : AppCompatActivity() {
                     is NetworkStatus.Failure -> {
 
                     }
-                    is NetworkStatus.Data<*> -> {
-                        val data = it.data as  List<GetAllCategoriesQuery.Category>
+                    is NetworkStatus.Data -> {
+
                         withContext(Dispatchers.Main) {
-                            tv.text = data[0].name
+                            tv.text = it.data[0].name
                         }
                     }
                 }

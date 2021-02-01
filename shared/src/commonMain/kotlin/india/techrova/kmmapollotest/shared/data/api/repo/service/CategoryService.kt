@@ -7,6 +7,7 @@ import india.techrova.kmmapollotest.GetAllCategoriesQuery
 import india.techrova.kmmapollotest.shared.data.api.ErrorCaseData
 import india.techrova.kmmapollotest.shared.data.api.NetworkStatus
 import india.techrova.kmmapollotest.shared.data.api.repo.CategoryRepo
+import india.techrova.kmmapollotest.shared.utils.CFlow
 import india.techrova.kmmapollotest.shared.utils.wrap
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -26,14 +27,15 @@ class CategoryService : CategoryRepo {
         )
     )
     //j
-    override suspend fun getAllCategories(): Flow<NetworkStatus> {
-        return flow {
+    @ApolloExperimental
+    override suspend fun getAllCategories(): CFlow<NetworkStatus<List<GetAllCategoriesQuery.Category>>> {
+        return flow<NetworkStatus<List<GetAllCategoriesQuery.Category>>> {
             apolloClient.query(GetAllCategoriesQuery()).execute().collect {
                 if (it.hasErrors()) {
-                   emit( NetworkStatus.customStatusDetailed(ErrorCaseData(404, "Apollo Error", "APP")))
+                   emit( NetworkStatus.customStatusDetailed<List<GetAllCategoriesQuery.Category>>(ErrorCaseData(404, "Apollo Error", "APP")))
                 }
                 else {
-                    emit(NetworkStatus.data(it.data?.category as  List<GetAllCategoriesQuery.Category>) )
+                    emit(NetworkStatus.data<List<GetAllCategoriesQuery.Category>>(it.data?.category as List<GetAllCategoriesQuery.Category> ) )
                 }
             }
         }.wrap()

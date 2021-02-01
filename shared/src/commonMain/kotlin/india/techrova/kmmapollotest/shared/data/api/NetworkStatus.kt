@@ -1,29 +1,31 @@
 package india.techrova.kmmapollotest.shared.data.api
 
+import india.techrova.kmmapollotest.GetAllCategoriesQuery
 
-sealed class NetworkStatus {
 
-    data class Loading(var loading: Boolean) : NetworkStatus()
+sealed class NetworkStatus<T> {
 
-    data class CustomSignal(var signal: String) : NetworkStatus()
+    data class Loading<T>(var loading: Boolean) : NetworkStatus<T> ()
 
-    data class CustomSignalDetailed(var signal: ErrorCaseData) : NetworkStatus()
+    data class CustomSignal<T>(var signal: String) : NetworkStatus<T>()
 
-    data class Failure(val e: Throwable) : NetworkStatus()
+    data class CustomSignalDetailed<T>(var signal: ErrorCaseData) : NetworkStatus<T>()
 
-    data class Data<T> (val data: T ) : NetworkStatus()
+    data class Failure<T>(val e: Throwable) : NetworkStatus<T>()
+
+    data class Data<T> (val data: T ) : NetworkStatus<T>()
 
     companion object {
 
-        fun loading(isLoading: Boolean): NetworkStatus = Loading(isLoading)
+        fun <T>loading(isLoading: Boolean): NetworkStatus<T> = Loading(isLoading)
 
-        fun customstatus(signal: String): NetworkStatus = CustomSignal(signal)
+        fun <T> customstatus(signal: String): NetworkStatus<T> = CustomSignal(signal)
 
-        fun customStatusDetailed(signals: ErrorCaseData): NetworkStatus = CustomSignalDetailed(signals)
+        fun <T> customStatusDetailed(signals: ErrorCaseData): NetworkStatus<T> = CustomSignalDetailed(signals)
 
-        fun failure(e: Throwable): NetworkStatus = Failure(e)
+        fun <T> failure(e: Throwable): NetworkStatus<T> = Failure(e)
 
-        fun <T> data(data: T): NetworkStatus = Data(data)
+        fun <T> data(data: T): NetworkStatus<T> = Data<T>(data)
     }
 
 }
