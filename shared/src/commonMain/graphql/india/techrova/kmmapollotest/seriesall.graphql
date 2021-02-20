@@ -20,7 +20,7 @@ query getAllSeries {
       poster
       seasonNo
       seasonsInfo {
-        episodes
+        episodeNo
         id
         info
         release

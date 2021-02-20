@@ -5999,7 +5999,7 @@
         "description": "columns and relationships of \"episodesData\"",
         "fields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": "An object relationship",
             "args": [],
             "type": {
@@ -6652,7 +6652,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -6869,7 +6869,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -7627,7 +7627,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -11385,7 +11385,7 @@
         "description": "columns and relationships of \"seasonsInfo\"",
         "fields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": "An object relationship",
             "args": [],
             "type": {
@@ -11401,7 +11401,7 @@
             "deprecationReason": null
           },
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -11666,6 +11666,18 @@
                 "name": "uuid",
                 "ofType": null
               }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
             },
             "isDeprecated": false,
             "deprecationReason": null
@@ -12065,7 +12077,7 @@
         "description": "aggregate avg on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -12101,7 +12113,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -12132,7 +12144,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -12180,7 +12192,7 @@
             "defaultValue": null
           },
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -12248,6 +12260,16 @@
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "String_comparison_exp",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -12278,7 +12300,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -12309,7 +12331,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -12319,7 +12341,7 @@
             "defaultValue": null
           },
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -12387,6 +12409,16 @@
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -12399,7 +12431,7 @@
         "description": "aggregate max on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -12469,6 +12501,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -12483,7 +12527,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -12534,6 +12578,16 @@
           },
           {
             "name": "series",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "title",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -12553,7 +12607,7 @@
         "description": "aggregate min on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -12623,6 +12677,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -12637,7 +12703,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -12688,6 +12754,16 @@
           },
           {
             "name": "series",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
+          },
+          {
+            "name": "title",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -12851,7 +12927,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "Series",
+            "name": "SeriesData",
             "description": null,
             "type": {
               "kind": "INPUT_OBJECT",
@@ -12861,7 +12937,7 @@
             "defaultValue": null
           },
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -12929,6 +13005,16 @@
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "type": {
+              "kind": "ENUM",
+              "name": "order_by",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -12969,7 +13055,7 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -13003,6 +13089,12 @@
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -13014,7 +13106,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "SCALAR",
@@ -13072,6 +13164,16 @@
               "ofType": null
             },
             "defaultValue": null
+          },
+          {
+            "name": "title",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": null
           }
         ],
         "interfaces": null,
@@ -13084,7 +13186,7 @@
         "description": "aggregate stddev on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -13120,7 +13222,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -13150,7 +13252,7 @@
         "description": "aggregate stddev_pop on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -13186,7 +13288,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -13216,7 +13318,7 @@
         "description": "aggregate stddev_samp on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -13252,7 +13354,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -13282,7 +13384,7 @@
         "description": "aggregate sum on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -13318,7 +13420,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -13351,7 +13453,7 @@
         "interfaces": null,
         "enumValues": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
@@ -13385,6 +13487,12 @@
             "description": "column name",
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "title",
+            "description": "column name",
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "possibleTypes": null
@@ -13395,7 +13503,7 @@
         "description": "aggregate var_pop on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -13431,7 +13539,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -13461,7 +13569,7 @@
         "description": "aggregate var_samp on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -13497,7 +13605,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",
@@ -13527,7 +13635,7 @@
         "description": "aggregate variance on columns",
         "fields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "args": [],
             "type": {
@@ -13563,7 +13671,7 @@
         "fields": null,
         "inputFields": [
           {
-            "name": "episodes",
+            "name": "episodeNo",
             "description": null,
             "type": {
               "kind": "ENUM",

@@ -270,7 +270,7 @@ type category_mutation_response {
 "columns and relationships of \"episodesData\""
 type episodesData {
     "An object relationship"
-    Series: Series!
+    SeriesData: Series!
     airDate: date!
     desc: String!
     durationMins: Int!
@@ -805,8 +805,8 @@ type query_root {
 "columns and relationships of \"seasonsInfo\""
 type seasonsInfo {
     "An object relationship"
-    Series: Series!
-    episodes: Int!
+    SeriesData: Series!
+    episodeNo: Int!
     "An array relationship"
     episodesData(
         "distinct select on columns"
@@ -838,6 +838,7 @@ type seasonsInfo {
     release: date!
     seasonNo: Int!
     series: uuid!
+    title: String
 }
 
 "aggregated selection of \"seasonsInfo\""
@@ -863,28 +864,30 @@ type seasonsInfo_aggregate_fields {
 
 "aggregate avg on columns"
 type seasonsInfo_avg_fields {
-    episodes: Float
+    episodeNo: Float
     seasonNo: Float
 }
 
 "aggregate max on columns"
 type seasonsInfo_max_fields {
-    episodes: Int
+    episodeNo: Int
     id: uuid
     info: String
     release: date
     seasonNo: Int
     series: uuid
+    title: String
 }
 
 "aggregate min on columns"
 type seasonsInfo_min_fields {
-    episodes: Int
+    episodeNo: Int
     id: uuid
     info: String
     release: date
     seasonNo: Int
     series: uuid
+    title: String
 }
 
 "response of any mutation on the table \"seasonsInfo\""
@@ -897,43 +900,43 @@ type seasonsInfo_mutation_response {
 
 "aggregate stddev on columns"
 type seasonsInfo_stddev_fields {
-    episodes: Float
+    episodeNo: Float
     seasonNo: Float
 }
 
 "aggregate stddev_pop on columns"
 type seasonsInfo_stddev_pop_fields {
-    episodes: Float
+    episodeNo: Float
     seasonNo: Float
 }
 
 "aggregate stddev_samp on columns"
 type seasonsInfo_stddev_samp_fields {
-    episodes: Float
+    episodeNo: Float
     seasonNo: Float
 }
 
 "aggregate sum on columns"
 type seasonsInfo_sum_fields {
-    episodes: Int
+    episodeNo: Int
     seasonNo: Int
 }
 
 "aggregate var_pop on columns"
 type seasonsInfo_var_pop_fields {
-    episodes: Float
+    episodeNo: Float
     seasonNo: Float
 }
 
 "aggregate var_samp on columns"
 type seasonsInfo_var_samp_fields {
-    episodes: Float
+    episodeNo: Float
     seasonNo: Float
 }
 
 "aggregate variance on columns"
 type seasonsInfo_variance_fields {
-    episodes: Float
+    episodeNo: Float
     seasonNo: Float
 }
 
@@ -1439,7 +1442,7 @@ enum seasonsInfo_constraint {
 "select columns of table \"seasonsInfo\""
 enum seasonsInfo_select_column {
     "column name"
-    episodes
+    episodeNo
     "column name"
     id
     "column name"
@@ -1450,12 +1453,14 @@ enum seasonsInfo_select_column {
     seasonNo
     "column name"
     series
+    "column name"
+    title
 }
 
 "update columns of table \"seasonsInfo\""
 enum seasonsInfo_update_column {
     "column name"
-    episodes
+    episodeNo
     "column name"
     id
     "column name"
@@ -1466,6 +1471,8 @@ enum seasonsInfo_update_column {
     seasonNo
     "column name"
     series
+    "column name"
+    title
 }
 
 "unique or primary key constraints on table \"studio\""
@@ -1941,7 +1948,7 @@ input episodesData_avg_order_by {
 
 "Boolean expression to filter rows from the table \"episodesData\". All fields are combined with a logical 'AND'."
 input episodesData_bool_exp {
-    Series: Series_bool_exp
+    SeriesData: Series_bool_exp
     _and: [episodesData_bool_exp]
     _not: episodesData_bool_exp
     _or: [episodesData_bool_exp]
@@ -1966,7 +1973,7 @@ input episodesData_inc_input {
 
 "input type for inserting data into table \"episodesData\""
 input episodesData_insert_input {
-    Series: Series_obj_rel_insert_input
+    SeriesData: Series_obj_rel_insert_input
     airDate: date
     desc: String
     durationMins: Int
@@ -2023,7 +2030,7 @@ input episodesData_on_conflict {
 
 "ordering options when selecting data from \"episodesData\""
 input episodesData_order_by {
-    Series: Series_order_by
+    SeriesData: Series_order_by
     airDate: order_by
     desc: order_by
     durationMins: order_by
@@ -2144,61 +2151,65 @@ input seasonsInfo_arr_rel_insert_input {
 
 "order by avg() on columns of table \"seasonsInfo\""
 input seasonsInfo_avg_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
 "Boolean expression to filter rows from the table \"seasonsInfo\". All fields are combined with a logical 'AND'."
 input seasonsInfo_bool_exp {
-    Series: Series_bool_exp
+    SeriesData: Series_bool_exp
     _and: [seasonsInfo_bool_exp]
     _not: seasonsInfo_bool_exp
     _or: [seasonsInfo_bool_exp]
-    episodes: Int_comparison_exp
+    episodeNo: Int_comparison_exp
     episodesData: episodesData_bool_exp
     id: uuid_comparison_exp
     info: String_comparison_exp
     release: date_comparison_exp
     seasonNo: Int_comparison_exp
     series: uuid_comparison_exp
+    title: String_comparison_exp
 }
 
 "input type for incrementing integer column in table \"seasonsInfo\""
 input seasonsInfo_inc_input {
-    episodes: Int
+    episodeNo: Int
     seasonNo: Int
 }
 
 "input type for inserting data into table \"seasonsInfo\""
 input seasonsInfo_insert_input {
-    Series: Series_obj_rel_insert_input
-    episodes: Int
+    SeriesData: Series_obj_rel_insert_input
+    episodeNo: Int
     episodesData: episodesData_arr_rel_insert_input
     id: uuid
     info: String
     release: date
     seasonNo: Int
     series: uuid
+    title: String
 }
 
 "order by max() on columns of table \"seasonsInfo\""
 input seasonsInfo_max_order_by {
-    episodes: order_by
+    episodeNo: order_by
     id: order_by
     info: order_by
     release: order_by
     seasonNo: order_by
     series: order_by
+    title: order_by
 }
 
 "order by min() on columns of table \"seasonsInfo\""
 input seasonsInfo_min_order_by {
-    episodes: order_by
+    episodeNo: order_by
     id: order_by
     info: order_by
     release: order_by
     seasonNo: order_by
     series: order_by
+    title: order_by
 }
 
 "input type for inserting object relation for remote table \"seasonsInfo\""
@@ -2216,14 +2227,15 @@ input seasonsInfo_on_conflict {
 
 "ordering options when selecting data from \"seasonsInfo\""
 input seasonsInfo_order_by {
-    Series: Series_order_by
-    episodes: order_by
+    SeriesData: Series_order_by
+    episodeNo: order_by
     episodesData_aggregate: episodesData_aggregate_order_by
     id: order_by
     info: order_by
     release: order_by
     seasonNo: order_by
     series: order_by
+    title: order_by
 }
 
 "primary key columns input for table: \"seasonsInfo\""
@@ -2233,53 +2245,54 @@ input seasonsInfo_pk_columns_input {
 
 "input type for updating data in table \"seasonsInfo\""
 input seasonsInfo_set_input {
-    episodes: Int
+    episodeNo: Int
     id: uuid
     info: String
     release: date
     seasonNo: Int
     series: uuid
+    title: String
 }
 
 "order by stddev() on columns of table \"seasonsInfo\""
 input seasonsInfo_stddev_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
 "order by stddev_pop() on columns of table \"seasonsInfo\""
 input seasonsInfo_stddev_pop_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
 "order by stddev_samp() on columns of table \"seasonsInfo\""
 input seasonsInfo_stddev_samp_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
 "order by sum() on columns of table \"seasonsInfo\""
 input seasonsInfo_sum_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
 "order by var_pop() on columns of table \"seasonsInfo\""
 input seasonsInfo_var_pop_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
 "order by var_samp() on columns of table \"seasonsInfo\""
 input seasonsInfo_var_samp_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
 "order by variance() on columns of table \"seasonsInfo\""
 input seasonsInfo_variance_order_by {
-    episodes: order_by
+    episodeNo: order_by
     seasonNo: order_by
 }
 
